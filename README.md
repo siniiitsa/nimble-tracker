@@ -1,5 +1,7 @@
 # nimble-timer
 
+![Node CI](https://github.com/siniiitsa/nimble-tracker/workflows/Node%20CI/badge.svg)
+
 A simple app for tracking time
 
 ## Building and running on localhost
