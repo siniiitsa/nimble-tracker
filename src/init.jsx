@@ -4,5 +4,5 @@ import App from './components/App';
 import './styles.less';
 
 export default () => {
-  ReactDOM.render(<App name="Jane" />, document.getElementById('app'));
+  ReactDOM.render(<App />, document.getElementById('app'));
 };
