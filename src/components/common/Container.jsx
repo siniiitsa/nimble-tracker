@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Container.less';
 
 const Container = ({ children }) => {
-  return <div className="container">{children}</div>;
+  return <div className="Container">{children}</div>;
 };
 
 Container.propTypes = {
