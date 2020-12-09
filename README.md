@@ -5,6 +5,8 @@
 
 A simple app for tracking time
 
+## Deployed app https://nimble-tracker.vercel.app/
+
 ## Building and running on localhost
 
 First install dependencies:
