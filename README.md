@@ -1,6 +1,7 @@
 # nimble-timer
 
 ![Node CI](https://github.com/siniiitsa/nimble-tracker/workflows/Node%20CI/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1c395470070a5df94066/maintainability)](https://codeclimate.com/github/siniiitsa/nimble-tracker/maintainability)
 
 A simple app for tracking time
 
