@@ -1,4 +1,5 @@
 require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 const config = {
@@ -20,6 +21,11 @@ const config = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/assets/index.html',
+    }),
+  ],
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
