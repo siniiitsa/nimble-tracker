@@ -1,13 +1,14 @@
+@desktop: 560px;
+
 .container {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0 10px;
   width: 100%;
-  max-width: 1140px;
 }
 
-@media screen and (min-width: 560px) {
+@media screen and (min-width: @desktop) {
   .container {
-    width: 560px;
+    max-width: 560px;
   }
 }
