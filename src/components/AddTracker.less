@@ -1,0 +1,43 @@
+.AddTracker {
+  margin-bottom: 25px;
+
+  .frame {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 47px;
+    border: 1px solid dimgray;
+    border-radius: 999px;
+    padding: 0 2px 0 16px;
+  }
+
+  .field {
+    flex-grow: 999;
+    width: auto;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: dimgray;
+    font-size: 17px;
+
+    &::placeholder {
+      color: silver;
+    }
+  }
+
+  .btn {
+    width: 41px;
+    height: 41px;
+    background-color: #3faf6c;
+    border-radius: 50%;
+    border: none;
+    padding-right: 1px;
+    outline: none;
+
+    .icon {
+      font-size: 16px;
+      color: white;
+    }
+  }
+}
