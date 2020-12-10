@@ -1,0 +1,57 @@
+.Tracker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 61px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0 13px;
+  border-top: 1px solid gainsboro;
+
+  .name {
+    margin-right: 10px;
+    flex-grow: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .time {
+    margin-right: 27px;
+    margin-left: auto;
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    justify-self: flex-end;
+    gap: 15px;
+
+    .btn {
+      all: unset;
+      font-size: 25px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        color: gold;
+      }
+    }
+
+    .remove {
+      color: indianred;
+    }
+  }
+
+  &.on {
+    background-color: #fffaf3;
+
+    .name,
+    .time {
+      color: seagreen;
+    }
+  }
+}
