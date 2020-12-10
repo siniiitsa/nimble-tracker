@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle, faPauseCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import './Tracker.less';
@@ -31,6 +32,10 @@ const Tracker = ({ tracker }) => {
       )}
     </div>
   );
+};
+
+Tracker.propTypes = {
+  tracker: PropTypes.object.isRequired,
 };
 
 export default Tracker;
