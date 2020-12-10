@@ -5,8 +5,29 @@
   height: 61px;
   font-size: 13px;
   font-weight: 600;
-  padding: 0 13px;
-  border-top: 1px solid gainsboro;
+  padding: 0 15px;
+  border-bottom: 1px solid rgb(240, 240, 240);
+
+  @media screen and (min-width: 560px) {
+    font-size: 17px;
+  }
+
+  &:first-child {
+    border-top: 1px solid rgb(240, 240, 240);
+  }
+
+  &.data {
+    border-color: lightgray;
+  }
+
+  &.on {
+    background-color: #fffaf3;
+
+    .name,
+    .time {
+      color: seagreen;
+    }
+  }
 
   .name {
     margin-right: 10px;
@@ -43,15 +64,6 @@
 
     .remove {
       color: indianred;
-    }
-  }
-
-  &.on {
-    background-color: #fffaf3;
-
-    .name,
-    .time {
-      color: seagreen;
     }
   }
 }
