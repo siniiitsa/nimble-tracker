@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import buildStore from './store';
 import App from './components/App';
 import { initTrakers } from './store/trackers';
-import './styles.less';
+import './assets/styles/main.less';
 
 export default (data = { trackers: [] }) => {
   // Prepare
