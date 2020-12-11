@@ -1,11 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Tracker from './Tracker';
 import './TrackersList.less';
-
-const trackers = [
-  { id: 1, name: 'Tracker with a very long name', time: '11:00:55', on: true },
-  { id: 2, name: 'Tracker with a short name', time: '11:00:55', on: false },
-];
 
 const prepareTrackers = (trackers = [], outputLength = 0) => {
   if (trackers.length >= outputLength) return trackers;
@@ -14,6 +10,8 @@ const prepareTrackers = (trackers = [], outputLength = 0) => {
 };
 
 const TrackersList = () => {
+  const trackers = useSelector((state) => state.trackers);
+
   const preparedTrackers = prepareTrackers(trackers, 5);
 
   return (
