@@ -1,5 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import * as dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,8 +9,17 @@ import { faPlayCircle, faPauseCircle, faMinusCircle } from '@fortawesome/free-so
 import { removeTracker } from '../store/trackers';
 import './Tracker.less';
 
+dayjs.extend(duration);
+
+const formatDuration = (ms) => {
+  const duration = dayjs.duration(ms);
+  const hh = Math.trunc(duration.asHours());
+  const mmss = duration.format('mm:ss');
+  return `${hh}:${mmss}`.padStart(8, 0);
+};
+
 const Tracker = ({ tracker }) => {
-  const { id, name, on, time, empty } = tracker;
+  const { id, name, on, ms, empty } = tracker;
   const dispatch = useDispatch();
 
   const trackerClasses = cn({
@@ -26,7 +37,7 @@ const Tracker = ({ tracker }) => {
       {!empty && (
         <>
           <div className="name">{name}</div>
-          <div className="time">{time}</div>
+          <div className="time">{formatDuration(ms)}</div>
           <div className="btns">
             <button className="btn control">
               <FontAwesomeIcon icon={on ? faPauseCircle : faPlayCircle} />

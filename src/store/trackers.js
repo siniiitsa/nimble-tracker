@@ -5,7 +5,8 @@ let lastId = 0;
 const createTracker = (name) => ({
   id: ++lastId,
   name,
-  time: '00:44:11',
+  ms: 0,
+  running: true,
 });
 
 const slice = createSlice({
