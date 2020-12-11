@@ -17,11 +17,11 @@ const TrackersList = () => {
   const preparedTrackers = prepareTrackers(trackers, 5);
 
   return (
-    <div className="TrackersList">
+    <ul className="TrackersList">
       {preparedTrackers.map((tracker, index) => (
         <Tracker key={index} tracker={tracker} />
       ))}
-    </div>
+    </ul>
   );
 };
 

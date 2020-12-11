@@ -15,7 +15,7 @@ const Tracker = ({ tracker }) => {
   });
 
   return (
-    <div className={trackerClasses}>
+    <li className={trackerClasses}>
       {!empty && (
         <>
           <div className="name">{name}</div>
@@ -30,7 +30,7 @@ const Tracker = ({ tracker }) => {
           </div>
         </>
       )}
-    </div>
+    </li>
   );
 };
 
