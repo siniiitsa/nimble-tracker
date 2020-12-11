@@ -1,14 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-let lastId = 0;
-
-const createTracker = (name) => ({
-  id: ++lastId,
-  name,
-  ms: 0,
-  running: true,
-});
-
 const slice = createSlice({
   name: 'trackers',
   initialState: [],
@@ -17,7 +8,10 @@ const slice = createSlice({
       trackers.push(...initialTrackers);
     },
     addTracker(trackers, { payload: { name } }) {
-      trackers.push(createTracker(name));
+      const prevIds = trackers.map((t) => t.id);
+      const nextId = Math.max(...prevIds, 0) + 1;
+      const tracker = { id: nextId, name, ms: 0, running: true };
+      trackers.push(tracker);
     },
     removeTracker(trackers, { payload: { id } }) {
       return trackers.filter((t) => t.id !== id);
