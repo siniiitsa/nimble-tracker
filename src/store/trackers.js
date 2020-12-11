@@ -22,6 +22,6 @@ const slice = createSlice({
   },
 });
 
-export const { addTracker } = slice.actions;
+export const { addTracker, removeTracker } = slice.actions;
 
 export default slice.reducer;
