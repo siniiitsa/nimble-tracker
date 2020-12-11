@@ -13,6 +13,9 @@ const slice = createSlice({
   name: 'trackers',
   initialState: [],
   reducers: {
+    initTrakers(trackers, { payload: { trackers: initialTrackers } }) {
+      trackers.push(...initialTrackers);
+    },
     addTracker(trackers, { payload: { name } }) {
       trackers.push(createTracker(name));
     },
@@ -23,6 +26,6 @@ const slice = createSlice({
   },
 });
 
-export const { addTracker, removeTracker } = slice.actions;
+export const { initTrakers, addTracker, removeTracker } = slice.actions;
 
 export default slice.reducer;

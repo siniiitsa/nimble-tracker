@@ -1,3 +1,6 @@
 import runApp from './init';
+import storage from './lib/storage';
 
-runApp();
+const trackers = storage.getTrackers();
+
+runApp({ trackers });
