@@ -12,11 +12,10 @@ import './Tracker.less';
 dayjs.extend(duration);
 
 const formatDuration = (ms) => {
-  const d = dayjs.duration(ms);
-  return [d.asHours(), d.asMinutes(), d.asSeconds()]
-    .map(String)
-    .map((val) => val.padStart(2, 0))
-    .join(':');
+  const duration = dayjs.duration(ms);
+  const hh = Math.trunc(duration.asHours());
+  const mmss = duration.format('mm:ss');
+  return `${hh}:${mmss}`.padStart(8, 0);
 };
 
 const Tracker = ({ tracker }) => {
