@@ -1,9 +1,11 @@
+@import '../../assets/styles/mixins.less';
+
 .Container {
   box-sizing: border-box;
   margin: 0 auto;
   width: 100%;
 
-  @media screen and (min-width: 560px) {
+  .desktop({
     max-width: 560px;
-  }
+  });
 }
