@@ -1,12 +1,13 @@
 @import '../assets/styles/variables.less';
+@import '../assets/styles/mixins.less';
 
 .AddTracker {
   margin-bottom: 25px;
   padding: 0 15px;
 
-  @media screen and (min-width: 560px) {
+  .desktop({
     padding: 0;
-  }
+  });
 
   .frame {
     box-sizing: border-box;
