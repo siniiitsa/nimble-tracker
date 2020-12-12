@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import buildStore from './store';
 import App from './components/App';
-import { initTrakers } from './store/trackers';
+import { initTrakers, updateTrackers } from './store/trackers';
 import './assets/styles/main.less';
+
+const updateInterval = 100;
 
 export default (data = { trackers: [] }) => {
   // Prepare
@@ -12,6 +14,10 @@ export default (data = { trackers: [] }) => {
 
   const store = buildStore();
   store.dispatch(initTrakers({ trackers }));
+
+  setInterval(() => {
+    store.dispatch(updateTrackers());
+  }, updateInterval);
 
   // Mount
   ReactDOM.render(
