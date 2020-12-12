@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import uniqid from 'uniqid';
+
+const uniqueId = () => `id_${Date.now()}`;
 
 const slice = createSlice({
   name: 'trackers',
@@ -9,7 +10,7 @@ const slice = createSlice({
       trackers.push(...initialTrackers);
     },
     addTracker(trackers, { payload: { name } }) {
-      const tracker = { id: uniqid(), name, ms: 0, running: true };
+      const tracker = { id: uniqueId(), name, ms: 0, running: true };
       return [tracker, ...trackers];
     },
     removeTracker(trackers, { payload: { id } }) {
