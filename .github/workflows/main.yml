@@ -19,10 +19,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm install
         env:
           CI: true
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Run linter
         run: npm run lint-check
