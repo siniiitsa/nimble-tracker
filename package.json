@@ -11,7 +11,8 @@
     "build-dev": "webpack --mode development",
     "build-prod": "webpack --mode production",
     "start": "webpack serve --hot --mode development",
-    "test": "npx jest",
+    "test": "NODE_ENV=test npx jest --watch",
+    "test-check": "NODE_ENV=test npx jest",
     "lint": "eslint --fix .",
     "lint-check": "eslint ."
   },
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
     "@babel/preset-env": "^7.12.10",
     "@babel/preset-react": "^7.12.7",
     "@hot-loader/react-dom": "^17.0.1+4.13.0",
