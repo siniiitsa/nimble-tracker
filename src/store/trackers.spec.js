@@ -81,32 +81,4 @@ describe('trackers slice', () => {
       expect(tracker.running).toEqual(false);
     });
   });
-
-  describe('updateTrackers', () => {
-    it('should update running trackers', () => {
-      const trackers = [{ ms: 0, lastUpdate: 0, running: true }];
-      store.dispatch(initTrackers({ trackers }));
-
-      store.dispatch(updateTrackers());
-
-      setTimeout(() => {
-        const tracker = getTrackers()[0];
-        expect(tracker.ms).toBeGreaterThan(0);
-        expect(tracker.lastUpdate).toBeGreaterThan(0);
-      }, 10);
-    });
-
-    it('should update running trackers', () => {
-      const trackers = [{ ms: 0, lastUpdate: 0, running: false }];
-      store.dispatch(initTrackers({ trackers }));
-
-      store.dispatch(updateTrackers());
-
-      setTimeout(() => {
-        const tracker = getTrackers()[0];
-        expect(tracker.ms).toEqual(0);
-        expect(tracker.lastUpdate).toEqual(0);
-      }, 10);
-    });
-  });
 });
