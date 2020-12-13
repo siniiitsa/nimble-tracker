@@ -1,5 +1,5 @@
 import buildStore from './index';
-import { initTrackers, addTracker, removeTracker, toggleRunning } from './trackers';
+import { initTrackers, addTracker, removeTracker, toggleRunning, updateTrackers } from './trackers';
 
 let store;
 
@@ -79,6 +79,34 @@ describe('trackers slice', () => {
 
       const tracker = getTrackers()[0];
       expect(tracker.running).toEqual(false);
+    });
+  });
+
+  describe('updateTrackers', () => {
+    it('should update running trackers', () => {
+      const trackers = [{ ms: 0, lastUpdate: 0, running: true }];
+      store.dispatch(addTracker({ trackers }));
+
+      store.dispatch(updateTrackers());
+
+      setTimeout(() => {
+        const tracker = getTrackers()[0];
+        expect(tracker.ms).toBeGreaterThan(0);
+        expect(tracker.lastUpdate).toBeGreaterThan(0);
+      }, 10);
+    });
+
+    it('should update running trackers', () => {
+      const trackers = [{ ms: 0, lastUpdate: 0, running: false }];
+      store.dispatch(addTracker({ trackers }));
+
+      store.dispatch(updateTrackers());
+
+      setTimeout(() => {
+        const tracker = getTrackers()[0];
+        expect(tracker.ms).toEqual(0);
+        expect(tracker.lastUpdate).toEqual(0);
+      }, 10);
     });
   });
 });
