@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import * as dayjs from 'dayjs';
 import buildStore from './store';
 import App from './components/App';
 import { initTrackers, updateTrackers } from './store/trackers';
@@ -16,7 +17,7 @@ export default (data = { trackers: [] }) => {
   store.dispatch(initTrackers({ trackers }));
 
   setInterval(() => {
-    store.dispatch(updateTrackers());
+    store.dispatch(updateTrackers({ updateTime: +dayjs() }));
   }, updateInterval);
 
   // Mount

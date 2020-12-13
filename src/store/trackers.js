@@ -27,12 +27,11 @@ const slice = createSlice({
       }
       tracker.running = !tracker.running;
     },
-    updateTrackers(trackers) {
-      const now = Date.now();
+    updateTrackers(trackers, { payload: { updateTime } }) {
       return trackers.map((t) => {
         if (!t.running) return t;
-        const diff = now - t.lastUpdate;
-        return { ...t, ms: t.ms + diff, lastUpdate: now };
+        const diff = updateTime - t.lastUpdate;
+        return { ...t, ms: t.ms + diff, lastUpdate: updateTime };
       });
     },
   },
