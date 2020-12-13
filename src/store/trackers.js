@@ -9,7 +9,7 @@ const slice = createSlice({
   name: 'trackers',
   initialState: [],
   reducers: {
-    initTrakers(trackers, { payload: { trackers: initialTrackers } }) {
+    initTrackers(trackers, { payload: { trackers: initialTrackers } }) {
       trackers.push(...initialTrackers);
     },
     addTracker(trackers, { payload: { name } }) {
@@ -41,7 +41,7 @@ const slice = createSlice({
 });
 
 export const {
-  initTrakers,
+  initTrackers,
   addTracker,
   removeTracker,
   toggleRunning,
