@@ -1,5 +1,5 @@
 import buildStore from './index';
-import { initTrackers, addTracker, removeTracker, toggleRunning, updateTrackers } from './trackers';
+import { initTrackers, addTracker, removeTracker, toggleRunning } from './trackers';
 
 let store;
 
