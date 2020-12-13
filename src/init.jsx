@@ -15,7 +15,7 @@ const defaultParams = {
 
 export default (params = {}) => {
   // Prepare
-  const { trackers, startUpdatingTrackers } = { ...params, ...defaultParams };
+  const { trackers, startUpdatingTrackers } = { ...defaultParams, ...params };
 
   const store = buildStore();
   const { dispatch } = store;
