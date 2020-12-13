@@ -17,14 +17,13 @@ const slice = createSlice({
     removeTracker(trackers, { payload: { id } }) {
       return trackers.filter((t) => t.id !== id);
     },
-    toggleRunning(trackers, { payload: { id } }) {
+    toggleRunning(trackers, { payload: { id, toggleTime } }) {
       const tracker = trackers.find((t) => t.id === id);
-      const now = Date.now();
       if (tracker.running) {
-        const diff = now - tracker.lastUpdate;
+        const diff = toggleTime - tracker.lastUpdate;
         tracker.ms += diff;
       } else {
-        tracker.lastUpdate = now;
+        tracker.lastUpdate = toggleTime;
       }
       tracker.running = !tracker.running;
     },

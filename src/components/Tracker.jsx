@@ -33,7 +33,7 @@ const Tracker = ({ tracker }) => {
   };
 
   const handleToggleRunning = () => {
-    dispatch(toggleRunning({ id }));
+    dispatch(toggleRunning({ id, toggleTime: +dayjs() }));
   };
 
   return (
