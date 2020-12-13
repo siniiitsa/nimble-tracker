@@ -85,7 +85,7 @@ describe('trackers slice', () => {
   describe('updateTrackers', () => {
     it('should update running trackers', () => {
       const trackers = [{ ms: 0, lastUpdate: 0, running: true }];
-      store.dispatch(addTracker({ trackers }));
+      store.dispatch(initTrackers({ trackers }));
 
       store.dispatch(updateTrackers());
 
@@ -98,7 +98,7 @@ describe('trackers slice', () => {
 
     it('should update running trackers', () => {
       const trackers = [{ ms: 0, lastUpdate: 0, running: false }];
-      store.dispatch(addTracker({ trackers }));
+      store.dispatch(initTrackers({ trackers }));
 
       store.dispatch(updateTrackers());
 
