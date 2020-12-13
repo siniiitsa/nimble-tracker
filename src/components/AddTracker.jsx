@@ -16,8 +16,9 @@ const AddTracker = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const name = trackerName.trim() || dayjs().format('[Started] DD/MM/YYYY [at] HH:mm:ss');
-    dispatch(addTracker({ name }));
+    const now = dayjs();
+    const name = trackerName.trim() || now.format('[Started] DD/MM/YYYY [at] HH:mm:ss');
+    dispatch(addTracker({ creationTime: +now, name }));
     setTrackerName('');
   };
 

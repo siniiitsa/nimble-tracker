@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const createTracker = (name) => {
-  const now = Date.now();
-  return { id: `id_${now}`, name, ms: 0, lastUpdate: now, running: true };
+const createTracker = (creationTime, name) => {
+  return { id: `id_${creationTime}`, name, ms: 0, lastUpdate: creationTime, running: true };
 };
 
 const slice = createSlice({
@@ -12,8 +11,8 @@ const slice = createSlice({
     initTrackers(trackers, { payload: { trackers: initialTrackers } }) {
       trackers.push(...initialTrackers);
     },
-    addTracker(trackers, { payload: { name } }) {
-      return [createTracker(name), ...trackers];
+    addTracker(trackers, { payload: { creationTime, name } }) {
+      return [createTracker(creationTime, name), ...trackers];
     },
     removeTracker(trackers, { payload: { id } }) {
       return trackers.filter((t) => t.id !== id);
