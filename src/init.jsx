@@ -7,18 +7,26 @@ import App from './components/App';
 import { initTrackers, updateTrackers } from './store/trackers';
 import './assets/styles/main.less';
 
-const updateInterval = 100;
+const intervalOfUpdate = 100;
+const defaultParams = {
+  trackers: [],
+  startUpdatingTrackers: true,
+};
 
-export default (data = { trackers: [] }) => {
+export default (params = {}) => {
   // Prepare
-  const { trackers } = data;
+  const { trackers, startUpdatingTrackers } = { ...params, ...defaultParams };
 
   const store = buildStore();
-  store.dispatch(initTrackers({ trackers }));
+  const { dispatch } = store;
 
-  setInterval(() => {
-    store.dispatch(updateTrackers({ updateTime: +dayjs() }));
-  }, updateInterval);
+  dispatch(initTrackers({ trackers }));
+
+  if (startUpdatingTrackers) {
+    setInterval(() => {
+      dispatch(updateTrackers({ updateTime: +dayjs() }));
+    }, intervalOfUpdate);
+  }
 
   // Mount
   ReactDOM.render(
