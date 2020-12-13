@@ -7,10 +7,6 @@ A simple app for tracking time. Continues tracking time even when you leave the 
 
 Demo - https://nimble-tracker.vercel.app/
 
-## Building and running on localhost
-
-First install dependencies:
-
 ```sh
 # First install dependencies
 npm install
