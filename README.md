@@ -10,6 +10,8 @@ Demo - https://nimble-tracker.vercel.app/
 
 ![image](https://i.imgur.com/jUG6E9Y.png)
 
+## Some instructions
+
 ```sh
 # First install dependencies
 npm install
